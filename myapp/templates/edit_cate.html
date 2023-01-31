@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-xl">
+                  <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0">Add employee data</h5>
+                      <small class="text-muted float-end">Default label</small>
+                    </div>
+                    <div class="card-body">
+                      <form method="post" action="{% url 'updatecate' dataid=data.id %}" enctype="multipart/form-data">
+                         {% csrf_token %}
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-default-fullname">Full Name</label>
+                          <input type="text" class="form-control" id="basic-default-fullname" name="name"  value="{{data.category_name}}">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-default-company">Discription</label>
+
+                          <input type="text" class="form-control" id="basic-default-company" name="discription" value="{{data.discription}}" >
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-default-message">Image</label>
+                          <input type="file" id="basic-default-phone" class="form-control phone-mask" name="image" value="{{data.image}}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">update</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+</body>
+</html>
+{% endblock %}
